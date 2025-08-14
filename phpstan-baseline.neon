@@ -1,0 +1,25 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Parameter \#1 \$expected \(Closure\) of method EliasHaeussler\\DeepClosureComparator\\DeepClosureComparator\:\:assertEquals\(\) should be contravariant with parameter \$expected \(mixed\) of method SebastianBergmann\\Comparator\\Comparator\:\:assertEquals\(\)$#'
+			identifier: method.childParameterType
+			count: 1
+			path: src/DeepClosureComparator.php
+
+		-
+			message: '#^Parameter \#2 \$actual \(Closure\) of method EliasHaeussler\\DeepClosureComparator\\DeepClosureComparator\:\:assertEquals\(\) should be contravariant with parameter \$actual \(mixed\) of method SebastianBergmann\\Comparator\\Comparator\:\:assertEquals\(\)$#'
+			identifier: method.childParameterType
+			count: 1
+			path: src/DeepClosureComparator.php
+
+		-
+			message: '#^Access to constant on internal class PHPUnit\\Framework\\AssertionFailedError\.$#'
+			identifier: classConstant.internalClass
+			count: 1
+			path: tests/src/DeepClosureAssertTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/src/Fixtures/DeepClosureAssertTestClass.php

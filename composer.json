@@ -1,0 +1,79 @@
+{
+	"name": "eliashaeussler/deep-closure-comparator",
+	"description": "Provides a PHPUnit comparator to assert equality of closures",
+	"license": "GPL-3.0-or-later",
+	"type": "library",
+	"authors": [
+		{
+			"name": "Elias Häußler",
+			"email": "elias@haeussler.dev",
+			"homepage": "https://haeussler.dev",
+			"role": "Maintainer"
+		}
+	],
+	"require": {
+		"php": "~8.2.0 || ~8.3.0 || ~8.4.0",
+		"opis/closure": "^4.0",
+		"phpunit/phpunit": "^11.5 || ^12.4",
+		"sebastian/comparator": "^6.3 || ^7.0"
+	},
+	"require-dev": {
+		"armin/editorconfig-cli": "^2.1",
+		"eliashaeussler/php-cs-fixer-config": "^2.3",
+		"eliashaeussler/phpstan-config": "^2.9",
+		"eliashaeussler/rector-config": "^3.1.1",
+		"ergebnis/composer-normalize": "^2.47",
+		"phpstan/extension-installer": "^1.4",
+		"phpstan/phpstan-phpunit": "^2.0",
+		"shipmonk/composer-dependency-analyser": "^1.8"
+	},
+	"autoload": {
+		"psr-4": {
+			"EliasHaeussler\\DeepClosureComparator\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"EliasHaeussler\\DeepClosureComparator\\Tests\\": "tests/src/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"ergebnis/composer-normalize": true,
+			"phpstan/extension-installer": true
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"analyze": [
+			"@analyze:dependencies"
+		],
+		"analyze:dependencies": "composer-dependency-analyser",
+		"fix": [
+			"@fix:composer",
+			"@fix:editorconfig",
+			"@fix:php"
+		],
+		"fix:composer": "@composer normalize",
+		"fix:editorconfig": "@lint:editorconfig --fix",
+		"fix:php": "php-cs-fixer fix",
+		"lint": [
+			"@lint:composer",
+			"@lint:editorconfig",
+			"@lint:php"
+		],
+		"lint:composer": "@fix:composer --dry-run",
+		"lint:editorconfig": "ec",
+		"lint:php": "@fix:php --dry-run",
+		"migration": [
+			"@migration:rector"
+		],
+		"migration:rector": "rector process -c rector.php",
+		"sca": [
+			"@sca:php"
+		],
+		"sca:php": "phpstan analyse -c phpstan.php",
+		"test": "@test:coverage --no-coverage",
+		"test:coverage": "phpunit -c phpunit.xml"
+	}
+}
