@@ -57,6 +57,13 @@ final class FooTest extends TestCase
 }
 ```
 
+Or, in other words:
+
+```diff
+-self::assertEquals($expected, $actual);
++DeepClosureAssert::assertEquals($expected, $actual);
+```
+
 > [!NOTE]
 > Closures are compared using their serialized representation. This is done by the
 > [`opis/closure`](https://github.com/opis/closure) library, which provides mechanisms
