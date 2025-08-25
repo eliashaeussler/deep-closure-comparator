@@ -27,9 +27,8 @@ composer require --dev eliashaeussler/deep-closure-comparator
 
 ## ⚡ Usage
 
-Instead of using the `self::assertEquals()` method of a PHPUnit test case,
-use the method that is shipped within the [`DeepClosureAssert`](src/DeepClosureAssert.php)
-class:
+Instead of using the `self::assertEquals()` method of a PHPUnit test case, use the `assertEquals`
+method that is shipped within the [`DeepClosureAssert`](src/DeepClosureAssert.php) class:
 
 ```php
 use EliasHaeussler\DeepClosureComparator\DeepClosureAssert;
