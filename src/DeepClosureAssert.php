@@ -36,14 +36,18 @@ final class DeepClosureAssert
 {
     public static function assertEquals(mixed $expected, mixed $actual): void
     {
+        $deepClosureComparator = new DeepClosureComparator();
         $comparatorFactory = Comparator\Factory::getInstance();
-        $comparatorFactory->register(new DeepClosureComparator());
+        $comparatorFactory->register($deepClosureComparator);
 
         try {
             $comparator = $comparatorFactory->getComparatorFor($expected, $actual);
             $comparator->assertEquals($expected, $actual);
         } catch (Comparator\ComparisonFailure $failure) {
             Framework\Assert::fail($failure->getMessage());
+        } finally {
+            // Restore initial state of comparator factory
+            $comparatorFactory->unregister($deepClosureComparator);
         }
 
         // Required to avoid "no assertions" warnings in PHPUnit
