@@ -27,7 +27,10 @@ use Closure;
 use EliasHaeussler\DeepClosureComparator as Src;
 use Generator;
 use PHPUnit\Framework;
+use SebastianBergmann\Comparator\Factory;
 use stdClass;
+
+use function serialize;
 
 /**
  * DeepClosureAssertTest.
@@ -49,10 +52,23 @@ final class DeepClosureAssertTest extends Framework\TestCase
 
     #[Framework\Attributes\Test]
     #[Framework\Attributes\DataProvider('assertEqualsWithDeepClosureComparisonDoesNotFailIfClosuresAreEqualDataProvider')]
-    #[Framework\Attributes\DoesNotPerformAssertions]
     public function assertEqualsWithDeepClosureComparisonDoesNotFailIfClosuresAreEqual(mixed $expected, mixed $actual): void
     {
         Src\DeepClosureAssert::assertEquals($expected, $actual);
+    }
+
+    #[Framework\Attributes\Test]
+    public function assertEqualsRestoresInitialStateOfComparatorFactory(): void
+    {
+        $factory = Factory::getInstance();
+        $factoryState = serialize($factory);
+
+        $object = new stdClass();
+        $object->foo = static fn () => 'foo';
+
+        Src\DeepClosureAssert::assertEquals($object, $object);
+
+        self::assertSame($factoryState, serialize($factory));
     }
 
     /**
