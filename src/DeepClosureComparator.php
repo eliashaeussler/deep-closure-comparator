@@ -62,10 +62,10 @@ final class DeepClosureComparator extends Comparator\Comparator
         $actualReflector = new ReflectionFunction($actual);
         $message = sprintf(
             'Failed asserting that closure declared at %s:%d is equal to closure declared at %s:%d.',
-            $expectedReflector->getFileName(),
-            $expectedReflector->getStartLine(),
-            $actualReflector->getFileName(),
-            $actualReflector->getStartLine(),
+            (string) $expectedReflector->getFileName(),
+            (int) $expectedReflector->getStartLine(),
+            (string) $actualReflector->getFileName(),
+            (int) $actualReflector->getStartLine(),
         );
 
         throw new Comparator\ComparisonFailure($expected, $actual, '', '', $message);
