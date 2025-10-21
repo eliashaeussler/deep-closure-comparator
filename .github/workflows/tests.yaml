@@ -20,12 +20,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ["8.2", "8.3", "8.4"]
+        php-version: ["8.2", "8.3", "8.4", "8.5"]
         phpunit-version: ["10", "11", "12"]
         dependencies: ["highest", "lowest"]
         exclude:
           - php-version: "8.2"
             phpunit-version: "12"
+        # @todo Remove once PHP 8.5 is stable
+        include:
+          - php-version: "8.5"
+            experimental: true
     steps:
       - uses: actions/checkout@v5
         with:
@@ -44,7 +48,9 @@ jobs:
         uses: ramsey/composer-install@v3
         with:
           dependency-versions: ${{ matrix.dependencies }}
-          composer-options: --with=phpunit/phpunit:^${{ matrix.phpunit-version }}
+          composer-options: >-
+            --with=phpunit/phpunit:^${{ matrix.phpunit-version }}
+            ${{ matrix.experimental && '--ignore-platform-req=php+' }}
 
       # Run tests
       - name: Run tests
@@ -58,11 +64,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ["8.2", "8.3", "8.4"]
+        php-version: ["8.2", "8.3", "8.4", "8.5"]
         phpunit-version: ["10", "11", "12"]
         exclude:
           - php-version: "8.2"
             phpunit-version: "12"
+        # @todo Remove once PHP 8.5 is stable
+        include:
+          - php-version: "8.5"
+            experimental: true
     steps:
       - uses: actions/checkout@v5
         with:
@@ -79,6 +89,8 @@ jobs:
       # Install dependencies
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v3
+        with:
+          composer-options: ${{ matrix.experimental && '--ignore-platform-req=php+' }}
 
       # Download PHAR
       - name: Download PHPUnit PHAR
