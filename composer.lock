@@ -126,16 +126,16 @@
         },
         {
             "name": "opis/closure",
-            "version": "4.3.1",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opis/closure.git",
-                "reference": "9b6ef5f622b4b29cf98bdc144f2a370c3a40d4df"
+                "reference": "4836788ab123b955a0bbf31f7d4468dd3db825fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opis/closure/zipball/9b6ef5f622b4b29cf98bdc144f2a370c3a40d4df",
-                "reference": "9b6ef5f622b4b29cf98bdc144f2a370c3a40d4df",
+                "url": "https://api.github.com/repos/opis/closure/zipball/4836788ab123b955a0bbf31f7d4468dd3db825fa",
+                "reference": "4836788ab123b955a0bbf31f7d4468dd3db825fa",
                 "shasum": ""
             },
             "require": {
@@ -175,6 +175,7 @@
             "description": "A library that can be used to serialize closures (anonymous functions) and arbitrary data.",
             "homepage": "https://opis.io/closure",
             "keywords": [
+                "anonymous classes",
                 "anonymous functions",
                 "closure",
                 "function",
@@ -184,9 +185,9 @@
             ],
             "support": {
                 "issues": "https://github.com/opis/closure/issues",
-                "source": "https://github.com/opis/closure/tree/4.3.1"
+                "source": "https://github.com/opis/closure/tree/4.4.0"
             },
-            "time": "2025-01-10T20:42:24+00:00"
+            "time": "2025-11-20T00:20:49+00:00"
         },
         {
             "name": "phar-io/manifest",
