@@ -3,7 +3,6 @@
 # Deep Closure Comparator
 
 [![Coverage](https://img.shields.io/coverallsCoverage/github/eliashaeussler/deep-closure-comparator?logo=coveralls)](https://coveralls.io/github/eliashaeussler/deep-closure-comparator)
-[![Maintainability](https://qlty.sh/gh/eliashaeussler/projects/deep-closure-comparator/maintainability.svg)](https://qlty.sh/gh/eliashaeussler/projects/deep-closure-comparator)
 [![CGL](https://img.shields.io/github/actions/workflow/status/eliashaeussler/deep-closure-comparator/cgl.yaml?label=cgl&logo=github)](https://github.com/eliashaeussler/deep-closure-comparator/actions/workflows/cgl.yaml)
 [![Tests](https://img.shields.io/github/actions/workflow/status/eliashaeussler/deep-closure-comparator/tests.yaml?label=tests&logo=github)](https://github.com/eliashaeussler/deep-closure-comparator/actions/workflows/tests.yaml)
 [![Supported PHP Versions](https://img.shields.io/packagist/dependency-v/eliashaeussler/deep-closure-comparator/php?logo=php)](https://packagist.org/packages/eliashaeussler/deep-closure-comparator)
