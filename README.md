@@ -9,6 +9,15 @@
 
 </div>
 
+> [!IMPORTANT]
+> **Abandoned!** This library was created in response to a
+> [change](https://github.com/sebastianbergmann/comparator/commit/80b4388b7129ea8409681026dea05a85cf310d1b)
+> within the `sebastian/comparator` library. Since the underlying comparison
+> mechanism was [updated](https://github.com/sebastianbergmann/comparator/commit/687a828b212884cdfba0da8d410feb7ad34e73ab)
+> in the meanwhile, this library is no longer necessary and is therefore
+> abandoned. Please switch back to `sebastian/comparator` (versions 7.1.8,
+> 8.2.1 and onwards).
+
 A Composer library that provides a PHPUnit comparator to assert equality
 of closures. It can be used to perform deep evaluation of closures, e.g.
 as part of objects. Closures are compared using their serialized value,

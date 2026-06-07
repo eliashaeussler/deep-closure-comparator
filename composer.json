@@ -3,6 +3,7 @@
 	"description": "Provides a PHPUnit comparator to assert equality of closures",
 	"license": "GPL-3.0-or-later",
 	"type": "library",
+	"abandoned": "sebastian/comparator",
 	"authors": [
 		{
 			"name": "Elias Häußler",
